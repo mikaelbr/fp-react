@@ -1,5 +1,7 @@
 # Functional Helpers for React
 
+A work in experimental progress library for functional helpers to React components.
+
 ## Implemented Functions
 
 ### `partial(component, ...args)`
@@ -52,5 +54,3 @@ render(<Memoized foo='bar' />); // not updated
 ### `flowRight(...components)`
 
 ### `flow(...components)`
-
-### `identity()`
