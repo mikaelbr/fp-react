@@ -2,7 +2,7 @@
   "name": "fp-react",
   "version": "1.0.0",
   "description": "Functional tools for React components",
-  "main": "index.js",
+  "main": "./fp-react.js",
   "dependencies": {
     "omniscient": "^4.1.1"
   },
@@ -13,6 +13,7 @@
     "ava": "^0.14.0",
     "babel-cli": "^6.7.5",
     "babel-eslint": "^6.0.4",
+    "babel-plugin-add-module-exports": "^0.1.4",
     "babel-plugin-transform-react-require": "^1.0.1",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-react": "^6.5.0",
@@ -23,13 +24,18 @@
     "eslint-plugin-react": "^5.0.1",
     "eslint-plugin-standard": "^1.3.2",
     "jsdom": "^8.4.0",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
     "react-addons-test-utils": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-element-to-jsx-string": "^2.6.1"
+    "react-element-to-jsx-string": "^2.6.1",
+    "rimraf": "^2.5.2"
   },
   "scripts": {
     "test": "ava **/__tests__/**/*.js",
-    "build": "babel ./fp-react.js"
+    "build:dist": "node build/dist",
+    "build:es": "node build/es",
+    "build": "npm run build:dist && npm run build:es"
   },
   "ava": {
     "babel": "inherit",
@@ -38,6 +44,6 @@
       "./test/helpers/setup-browser-env.js"
     ]
   },
-  "author": "",
+  "author": "Mikael Brevik <mikaelbre@gmail.com>",
   "license": "MIT"
 }
