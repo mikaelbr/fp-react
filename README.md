@@ -118,6 +118,34 @@ render(React.createElement(Curried3, { foo: 'foo' }));
 <MyComponent a='42' bar='foo' baz='baz' foo='foo' />
 ```
 
+### With `propTypes`
+
+Instead of defining the arity yourself you can set required proptypes on
+your component and automatically define arity. Curried components with
+proptypes will terminate currying when all required props are provided.
+
+```jsx
+function MyComponent (props) {
+  return <div>{props.foo}{props.bar}{props.baz}</div>;
+}
+MyComponent.propTypes = {
+  foo: React.PropTypes.string.isRequired,
+  bar: React.PropTypes.string.isRequired,
+  baz: React.PropTypes.string
+};
+
+const Curried = curryRight(MyComponent);
+const Partial1 = Curried({ foo: 'foo' });
+const Partial2 = Partial1({ baz: 'baz' });
+const Partial3 = Partial2({ bar: 'bar' });
+
+render(React.createElement(Partial3, { foo: 'override' }));
+```
+
+### Returns
+```jsx
+<MyComponent bar='bar' baz='baz' foo='override' />
+```
 
 ## `curryRight(Component, arity = 1, initialProps = { })`
 
@@ -145,6 +173,37 @@ render(React.createElement(Curried3, { foo: 'foo' }));
 ```
 
 _(note the `a` and `bar` properties)_
+
+### With `propTypes`
+
+Instead of defining the arity yourself you can set required proptypes on
+your component and automatically define arity. Curried components with
+proptypes will terminate currying when all required props are provided.
+
+```jsx
+function MyComponent (props) {
+  return <div>{props.foo}{props.bar}{props.baz}</div>;
+}
+MyComponent.propTypes = {
+  foo: React.PropTypes.string.isRequired,
+  bar: React.PropTypes.string.isRequired,
+  baz: React.PropTypes.string
+};
+
+const Curried = curryRight(MyComponent);
+const Partial1 = Curried({ foo: 'foo' });
+const Partial2 = Partial1({ baz: 'baz' });
+const Partial3 = Partial2({ bar: 'bar' });
+
+render(React.createElement(Partial3, { foo: 'override' }));
+```
+
+### Returns
+```jsx
+<MyComponent bar='bar' baz='baz' foo='foo' />
+```
+
+_(note the `foo` property)_
 
 ## `flow(...components)`
 
