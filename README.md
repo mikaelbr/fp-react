@@ -98,9 +98,24 @@ render(React.createElement(Section, { foo: 'foo' }));
 <section><h1>foo</h1></section>
 ```
 
+### `curry(component, arity = 1, initialProps = { })`
+
+```jsx
+function MyComponent (props) {
+  return <div>{props.foo}{props.bar}</div>;
+}
+const Curried = curry(MyComponent, 2, { a: 1 });
+const Curried2 = Curried({ bar: 'bar' }); // Curry nr. 1
+const Curried3 = Curried2({ // Curry nr. 2
+  baz: 'baz',
+  bar: 'foo',
+  a: 42
+});
+render(React.createElement(Curried3, { foo: 'foo' }));
+```
+
 ## Functions Yet To Be Implemented
 
-### `curry(component, arity)`
 
 ### `curryRight(component, arity)`
 
