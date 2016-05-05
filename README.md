@@ -90,7 +90,7 @@ const Section = wrap(MyComponent, function (Comp, props) {
   );
 });
 
-const actual = React.createElement(Section, { foo: 'foo' });
+render(React.createElement(Section, { foo: 'foo' }));
 ```
 
 #### Returns
