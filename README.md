@@ -74,13 +74,29 @@ render(<Memoized foo='bar' />); // not updated
 render(<Memoized foo='bar' />); // not updated
 ```
 
+### `wrap(value, [wrapper=identity])`
+
+```jsx
+function MyComponent (props) {
+  return <h1>{props.foo}</h1>;
+}
+const Section = wrap(MyComponent, function (Comp, props) {
+  return (
+    <section>{Comp(props)}</section>
+  );
+});
+
+const actual = React.createElement(Section, { foo: 'foo' });
+
+// Returns:
+// <section><h1>foo</h1></section>
+```
+
 ## Functions Yet To Be Implemented
 
 ### `curry(component, arity)`
 
 ### `curryRight(component, arity)`
-
-### `wrap(value, [wrapper=identity])`
 
 ### `flowRight(...components)`
 
