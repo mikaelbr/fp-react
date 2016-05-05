@@ -41,7 +41,7 @@ Useful for the times you want to guarantee that a component has a property set.
 function MyComponent (props) {
   return <div>{props.foo}{props.children}</div>;
 }
-const Partialed = partial(MyComponent, {
+const Partialed = partialRight(MyComponent, {
   bar: 'bar',
   a: 1,
   children: [
