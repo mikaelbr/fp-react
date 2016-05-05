@@ -147,9 +147,33 @@ render(React.createElement(Curried3, { foo: 'foo' }));
 
 _(note the `a` and `bar` properties)_
 
+### `flow(...components)`
+
+```jsx
+function Div (props) {
+  return <div>{props.children}</div>;
+}
+function Section (props) {
+  return <section>{props.children}</section>;
+}
+function H1 (props) {
+  return <h1>{props.children}</h1>;
+}
+function Italic (props) {
+  return <em>{props.children}</em>;
+}
+
+const Composed = flow(Div, Section, H1, Italic);
+render(
+  <Composed>Hello World!</Composed>
+);
+```
+
+#### Returns
+```jsx
+<div><section><h1><em>Hello World!</em></h1></section></div>
+```
 
 ## Functions Yet To Be Implemented
 
 ### `flowRight(...components)`
-
-### `flow(...components)`
