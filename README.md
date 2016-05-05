@@ -22,12 +22,14 @@ render(
     <p>My message</p>
   </Partialed>
 );
+```
 
-// Returns:
-// <MyComponent foo='foo' bar='bar' a='2'>
-//   <h1>Hello, world</h1>
-//   <p>My message</p>
-// </MyComponent>
+#### Returns
+```jsx
+<MyComponent foo='foo' bar='bar' a='2'>
+  <h1>Hello, world</h1>
+  <p>My message</p>
+</MyComponent>
 ```
 
 ### `partialRight(component, partialProps)`
@@ -51,12 +53,14 @@ render(
     <p>My message</p>
   </Partialed>
 );
+```
 
-// Returns:
-// <MyComponent foo='foo' bar='bar' a='1'>
-//   <p>My message</p>
-//   <h1>Hello, world</h1>
-// </MyComponent>
+#### Returns
+```jsx
+<MyComponent foo='foo' bar='bar' a='1'>
+  <p>My message</p>
+  <h1>Hello, world</h1>
+</MyComponent>
 ```
 
 ### `memoizeish(component)`
@@ -87,9 +91,11 @@ const Section = wrap(MyComponent, function (Comp, props) {
 });
 
 const actual = React.createElement(Section, { foo: 'foo' });
+```
 
-// Returns:
-// <section><h1>foo</h1></section>
+#### Returns
+```jsx
+<section><h1>foo</h1></section>
 ```
 
 ## Functions Yet To Be Implemented
