@@ -32,7 +32,8 @@
     "rimraf": "^2.5.2"
   },
   "scripts": {
-    "test": "ava **/__tests__/**/*.js",
+    "test": "ava lib/__tests__/**/*.js",
+    "test:build": "ava output/**/__tests__/**/*.js",
     "build:dist": "node build/dist",
     "build:es": "node build/es",
     "build": "npm run build:dist && npm run build:es"

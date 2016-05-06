@@ -10,7 +10,6 @@ const pkg = require('./utils/package');
 
 const source = path.join(__dirname, '..', 'lib');
 const root = path.join(__dirname, '..', 'output', 'es');
-const tests = path.join(__dirname, '..', 'output', 'es', '__tests__');
 
 const entry = path.join(__dirname, '..', 'fp-react.js');
 const output = path.join(root, 'fp-react.js');
@@ -24,12 +23,10 @@ function makePackage () {
   clear(function () {
     mkdir(function () {
       bundle(function () {
-        deleteTests(function () {
-          makeEntry(function () {
-            pkg(name, keywords, root, function (err) {
-              if (err) return console.error(err);
-              console.log('ES Modules built');
-            });
+        makeEntry(function () {
+          pkg(name, keywords, root, function (err) {
+            if (err) return console.error(err);
+            console.log('ES Modules built');
           });
         });
       });
@@ -74,13 +71,6 @@ function clear (cb) {
     if (err) {
       return console.error(err);
     }
-    cb();
-  });
-}
-
-function deleteTests (cb) {
-  rimraf(tests, function (err) {
-    if (err) return console.error(err);
     cb();
   });
 }

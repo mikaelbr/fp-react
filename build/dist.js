@@ -53,7 +53,7 @@ function makeEntry (cb) {
 }
 
 function bundle (cb) {
-  exec(`babel ${source} --out-dir ${relative} --ignore /__tests__/`, opts, function (err) {
+  exec(`babel ${source} --out-dir ${relative}`, opts, function (err) {
     if (err) {
       return console.error(err);
     }

@@ -3,3 +3,6 @@ before_install:
   - "npm install react@15.0"
 node_js:
   - "6"
+script:
+  - npm run build
+  - npm run test:build
